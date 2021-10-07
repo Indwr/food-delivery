@@ -22,6 +22,16 @@ else
 							<span class="nav-text">Dashboard</span>
 						</a>
 					</li>
+
+					<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+							<i class="fa fa-picture-o"></i>
+							<span class="nav-text">Settings</span>
+						</a>
+                        <ul aria-expanded="false">
+                            <li><a href="site_settings.php">Site Settings</a></li>
+                            
+                        </ul>
+                    </li>
                     
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
 							<i class="fa fa-picture-o"></i>

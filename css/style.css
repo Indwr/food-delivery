@@ -1,0 +1,269 @@
+@font-face {
+    font-family: 'CircularStd';
+    src: url('../fonts/CircularStd-Book.woff2') format('woff2'),
+        url('../fonts/CircularStd-Book.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CircularStd';
+    src: url('../fonts/CircularStd-BookItalic.woff2') format('woff2'),
+        url('../fonts/CircularStd-BookItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CircularStd';
+    src: url('../fonts/CircularStd-BlackItalic.woff2') format('woff2'),
+        url('../fonts/CircularStd-BlackItalic.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CircularStd';
+    src: url('../fonts/CircularStd-BoldItalic.woff2') format('woff2'),
+        url('../fonts/CircularStd-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CircularStd';
+    src: url('../fonts/CircularStd-Black.woff2') format('woff2'),
+        url('../fonts/CircularStd-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CircularStd';
+    src: url('../fonts/CircularStd-Bold.woff2') format('woff2'),
+        url('../fonts/CircularStd-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CircularStd';
+    src: url('../fonts/CircularStd-Medium.woff2') format('woff2'),
+        url('../fonts/CircularStd-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CircularStd';
+    src: url('../fonts/CircularStd-MediumItalic.woff2') format('woff2'),
+        url('../fonts/CircularStd-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Circular Std Book';
+    src: url('../fonts/CircularStd-Book.woff2') format('woff2'),
+        url('../fonts/CircularStd-Book.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+body{
+	height: 100vh;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'CircularStd';
+	font-weight: 300;
+}
+
+.main-content h1{
+	margin-bottom: 20px;
+	font-weight: 900;
+	font-size: 70px;
+	line-height: 74px;
+}
+.header-main .bg-light{
+	background: #fff !important;
+	margin: 0 !important;
+}
+.header-main .navbar-brand img{
+	height: 45px;
+}
+/*.landing-main {
+	margin-top: 80px;
+}*/
+.footer-main a{
+	color: #01B9F5 !important;
+	text-decoration: none;
+}
+.footer-main p{
+	margin: 0;
+}
+.main-content h4{
+	margin-top: 22px;
+}
+.mobi-img img {
+	height: 510px;
+	width: auto;
+}
+.main-content p{
+	font-family: "CircularStd", sans-serif;
+	font-size: 18px;
+	font-weight: 300;
+	letter-spacing: -0.66px;
+	line-height: 34px;
+	color: rgba(0,0,0,0.7);
+}
+.play-btns img{
+	height: 55px;
+	width: auto;
+	margin-right: 24px;
+}
+.play-btns {
+	margin-top: 26px;
+}
+.play-btns a:last-child img{
+	margin-right: 0;
+}
+.landing-main {
+	padding-top: 0;
+}
+@media (max-width: 1440.98px) { 
+	.landing-main {
+		padding-top: 30px !important;
+	}
+	
+	.footer-main {
+		padding: 50px 0 0 0;
+	}
+}
+
+@media (max-width: 1366px) { 
+	.landing-main {
+		margin-top: -30px !important;
+	}
+	.footer-main {
+		margin:-40px 0 0 0 !important;
+	}	
+}
+@media (max-width: 1199.98px) { 
+	
+}
+@media (max-width: 1024px){
+	.landing-main {
+	    margin-top: 30px !important;
+	}
+	.footer-main {
+    margin: 20px 0 0 0 !important;
+}
+}
+@media (max-width: 991.98px) { 
+	.mobi-img img {
+	    height: 460px;
+	    width: auto;
+	}
+	.main-content h1 {
+	    margin-bottom: 20px;
+	    font-weight: 900;
+	    font-size: 44px;
+	    line-height: 54px;
+	}
+	.play-btns img {
+		height: 50px;
+	}
+	.landing-main {
+		padding-top: 40px !important;
+	}
+	.mobi-img figure{
+		margin-bottom: 0;
+	}
+	.footer-main{
+		margin-top: 20px !important;
+	}
+	.header-main .navbar-brand img{
+		margin-left: 20px;
+	}
+}
+@media (max-width: 767.98px) { 
+
+}
+@media (max-width: 575.98px) { 
+	body{
+		height: auto !important;
+		overflow: visible;
+	}
+	.header-main .navbar-brand img{
+		margin-left: 0;
+	}
+	.play-btns img{
+		height: 40px !important;
+	}
+	.play-btns{
+		justify-content: center;
+	}
+	.mobi-img img {
+	    height: 450px;
+	    width: auto;
+	    margin-top: 50px;
+	}
+	.main-content h1 {
+		font-size: 32px !important;
+		line-height: 42px;
+		margin-top: 15px;
+	}
+	.footer-main {
+	    padding: 0 0 25px 0 !important;
+	}
+	.main-content br{
+		display: none;
+	}
+	.main-content{
+		text-align: center;
+		padding: 0 15px;
+	}
+	.header-main .navbar-brand {
+		margin: 0 auto;
+	}
+	.mobi-img {
+	    text-align: center !important;
+	    margin-bottom: 30px;
+	}
+	.landing-main {
+	    margin-top: 10px !important;
+	    padding-top: 0 !important;
+	}
+	.main-content p{
+		font-size: 16px;
+		line-height: 28px;
+		padding: 0 10px;	
+	}
+	.main-content h4 {
+		font-size: 22px;
+	}
+}	
+
+
+
+
+
+.pricing_detail ul li:after{
+	transform: translateY(-50%);
+	top: 50%;
+}
+.pricing_detail ul li{
+	margin-bottom: 10px;
+}

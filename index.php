@@ -1,219 +1,70 @@
-<?php include 'include/main_header.php';
-if(isset($_SESSION['uname']))
-{
-	?>
-	<script>
-	window.location.href="dashboard.php";
-	</script>
-	<?php 
-}
-else 
-{
-}
-?>
-<body>
-	<div class="authincation d-flex flex-column flex-lg-row flex-column-fluid">
-		<div class="login-aside text-center  d-flex flex-column flex-row-auto">
-			<div class="d-flex flex-column-auto flex-column pt-lg-40 pt-15">
-				<div class="text-center mb-4 pt-5">
-					<img src="<?php echo $set['weblogo'];?>" width="100px" alt="">
-				</div>
-				<h3 class="mb-2">Welcome back!</h3>
-				<p><?php echo $set['webname'];?> Restaurant Login Panel</p>
-			</div>
-			<?php 
-			$imagesDir = 'images/background/';
-
-$images = glob($imagesDir . '*.{jpg,jpeg,png,gif}', GLOB_BRACE);
-
-$randomImage = $images[array_rand($images)];
-			?>
-			<div class="aside-image" style="background-image:url(<?php echo $randomImage;?>);"></div>
-		</div>
-		<div class="container flex-row-fluid d-flex flex-column justify-content-center position-relative overflow-hidden p-7 mx-auto">
-			<div class="d-flex justify-content-center h-100 align-items-center">
-				<div class="authincation-content style-2">
-					<div class="row no-gutters">
-						<div class="col-xl-12 tab-content">
-							
-							<div id="sign-in" method="post" class="auth-form form-validation">
-								<form   id="dz_login_signin_form" method="post">
-									<h3 class="text-center mb-4 text-black">Sign in your account</h3>
-									<div class="form-group">
-										<label class="mb-1"  for="val-email"><strong>Username</strong></label>
-										<div>
-											<input type="text" class="form-control"  id="val-email" placeholder="Enter Username" name="username" required>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="mb-1"><strong>Password</strong></label>
-										<input type="password" class="form-control" placeholder="Enter Password" name="password" required>
-									</div>
-									 <div class='form-group'>
-									 <label class="mb-1"  for="val-email"><strong>Select A Role</strong></label>
-	 <select name="ltype" class="form-control" required>
-	 <option value="">Select Role</option>
-	 <option value="Admin">Admin</option>
-	 <option value="Restaurant">Restaurant(Owner)</option>
-	 
-	 </select>
-	 </div>
-	 
-									<div class="text-center form-group">
-										<button type="submit" class="btn btn-primary btn-block"  name="sub_login" id="dz-signin-submit">Sign In</button>
-									</div>
-								</form>
-								
-							</div>
-							
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
 <?php 
-include 'include/eatgft.php';
+require_once 'admin/include/restconfig.php';
+require_once 'admin/include/Resteggy.php';
+
 ?>
 
-<?php 
-	if(isset($_POST['sub_login']))
-	{
-	    
-		$username = $_POST['username'];
-		$password = $_POST['password'];
-	
-	 $h = new Resteggy();
-	 if($_POST['ltype'] == 'Admin')
-	 {
-	 $count = $h->restlogin($username,$password,'admin');
- if($count != 0)
- {
-	 $_SESSION['uname'] = $username;
-	 $_SESSION['ltype'] = $_POST['ltype'];
-	 ?>
-	 
-	 <script type="text/javascript">
-  $(document).ready(function() {
-    toastr.success("Login Successfully!!", "Welcome Admin", {
-                     timeOut: 5e3,
-                    closeButton: !0,
-                    debug: !1,
-                    newestOnTop: !0,
-                    progressBar: !0,
-                    preventDuplicates: !0,
-                    onclick: null,
-                    showDuration: "300",
-                    hideDuration: "1000",
-                    extendedTimeOut: "1000",
-                    showEasing: "swing",
-                    hideEasing: "linear",
-                    showMethod: "fadeIn",
-                    hideMethod: "fadeOut",
-                    tapToDismiss: !1
-                })
-				 setTimeout(function(){ 
-	 window.location.href="dashboard.php"},3000);
-  });
-  </script>
-	 <?php 
- }
- else 
- {
-	 ?>
-	<script type="text/javascript">
-  $(document).ready(function() {
-    toastr.error("Please Enter Valid Data!!", "Wrong Data Enter", {
-                     timeOut: 5e3,
-                    closeButton: !0,
-                    debug: !1,
-                    newestOnTop: !0,
-                    progressBar: !0,
-                    preventDuplicates: !0,
-                    onclick: null,
-                    showDuration: "300",
-                    hideDuration: "1000",
-                    extendedTimeOut: "1000",
-                    showEasing: "swing",
-                    hideEasing: "linear",
-                    showMethod: "fadeIn",
-                    hideMethod: "fadeOut",
-                    tapToDismiss: !1
-                })
-				 
-  });
-  </script>
-	 <?php 
- }
-	 }
-	 else if($_POST['ltype'] == 'Restaurant')
-	 {
-		$count = $h->restlogin($username,$password,'rest_details');
- if($count != 0)
- {
-	 $_SESSION['uname'] = $username;
-	 $_SESSION['ltype'] = $_POST['ltype'];
-	 ?>
-	  <script type="text/javascript">
-  $(document).ready(function() {
-    toastr.success("Login Successfully!!", "Welcome Restaurant Owner", {
-                     timeOut: 5e3,
-                    closeButton: !0,
-                    debug: !1,
-                    newestOnTop: !0,
-                    progressBar: !0,
-                    preventDuplicates: !0,
-                    onclick: null,
-                    showDuration: "300",
-                    hideDuration: "1000",
-                    extendedTimeOut: "1000",
-                    showEasing: "swing",
-                    hideEasing: "linear",
-                    showMethod: "fadeIn",
-                    hideMethod: "fadeOut",
-                    tapToDismiss: !1
-                })
-				 setTimeout(function(){ 
-	 window.location.href="dashboard.php"},3000);
-  });
-  </script>
-	 <?php 
- }
- else 
- {
-	 ?>
-	 <script type="text/javascript">
-  $(document).ready(function() {
-    toastr.error("Please Enter Valid Data!!", "Wrong Data Enter", {
-                     timeOut: 5e3,
-                    closeButton: !0,
-                    debug: !1,
-                    newestOnTop: !0,
-                    progressBar: !0,
-                    preventDuplicates: !0,
-                    onclick: null,
-                    showDuration: "300",
-                    hideDuration: "1000",
-                    extendedTimeOut: "1000",
-                    showEasing: "swing",
-                    hideEasing: "linear",
-                    showMethod: "fadeIn",
-                    hideMethod: "fadeOut",
-                    tapToDismiss: !1
-                })
-				 
-  });
-  </script>
-	 <?php 
- } 
-	 }
-	 else 
-	 {
-		 
-	 }
-		
-	}
-	?>
-	 
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title><?php echo $set['webname'];?></title>
+  </head>
+  <body>
+    <header class="header-main">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light mb-2">
+        <div class="container">
+          <a class="navbar-brand mt-2" href="#"><img src="<?php echo str_replace('../', '', $set['weblogo']) ;?>"></a>
+        </div>
+      </nav>
+    </header>
+    <section class="landing-main">
+      <div class="container">
+        <div class="row d-flex align-items-center ">
+          <div class="col-md-7">
+            <div class="main-content">
+              <!-- <h1>Looking for a </br>fast delivery in Mumbai?</h1> -->
+              <?php echo $set['caption'];?>
+              
+              <p><?php echo $set['description'];?></p>
+              <h4><?php echo $set['app_title'];?></h4>
+              <div class="play-btns d-flex">
+                <a href="<?php echo $set['app_ios'];?>"><img src="images/getappstore.png"></a>
+                <a href="<?php echo $set['app_apk'];?>"><img src="images/getplaystore.png"></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="mobi-img text-right">
+              <figure>
+                <img src="<?php echo $set['webphone'];?>">
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer-main mt-3">
+    	<div class="container">
+    		<div class="row">
+    			<div class="col-md-12">
+    				<div class="d-block w-100 text-center">
+	    				<p><?php echo $set['webfooter'];?> | <a href="mailto:contact@belboy.in">Contact us</a></p>
+	    			</div>
+    			</div>
+    		</div>
+    	</div>
+    </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
 </html>

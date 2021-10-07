@@ -23,4 +23,5 @@ require 'Resteggy.php';
 <link href="rainwire/rainwire.css" rel="stylesheet" type="text/css">
 <link href="swiggum/swiggum.css" rel="stylesheet" type="text/css">
 <link href="vendor/jumka/jumka.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
